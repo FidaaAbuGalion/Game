@@ -16,15 +16,10 @@ public class Door extends Items {
         this.color = color;
     }
 
-
-    /*public Rectangle getBounds(){
-        return new Rectangle(x, y, width, height);
-    }*/
-
     @Override
     public void render(Graphics graphics) {
         graphics.setColor(color);
-        graphics.fillOval(x, y, width, height);
+        graphics.fillRect(x, y, width, height);
     }
 
     @Override

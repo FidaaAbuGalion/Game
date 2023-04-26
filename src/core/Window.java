@@ -57,9 +57,19 @@ public class Window extends Canvas implements Runnable{
         if(bufferStrategy == null){
             this.createBufferStrategy(2);
             bufferStrategy = this.getBufferStrategy();
+       /* while (player.levelNum <= 5){
+            if (player.touchDoor){
+                player.levelNum++;
+                level.levels(player.levelNum);
+            }*/
         }
         Graphics g = bufferStrategy.getDrawGraphics();
-        g.setColor(Color.darkGray);
+        if (player.levelNum == 1) {
+            g.setColor(Color.darkGray);
+          //  new Player(this, 200,100,20,20);
+        } else if (player.levelNum == 2) {
+            g.setColor(Color.green);
+        }
         g.fillRect(0,0,this.getWidth(),this.getHeight());
 
         player.render(g);
