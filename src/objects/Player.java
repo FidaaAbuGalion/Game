@@ -1,29 +1,33 @@
 package objects;
 
+import core.GameState;
 import level.LevelHandler;
 
 import java.awt.*;
 import java.util.LinkedList;
 import java.util.Objects;
 
+import static level.LevelHandler.levels;
+
 public class Player {
 
     public core.Window window;
-    public double x, y;
+    public double x = 400;
+    public double y = 0;
     public int width, height;
     public double velX, velY;
-    public double speed = 0.5;
-    public double jumpVelocity = 0.30;
+    public double speed = 0.2;
+    public double jumpVelocity = 0.45;
     public boolean falling = false;
     public boolean touchDoor = false;
-    public int levelNum = 1;
+    public static boolean touchKey = false;
+    public int levelNum  = 1;
+    public static int keysNum = 0;
 
 
 
-    public Player(core.Window window, double x, double y, int width, int height) {
+    public Player(core.Window window, int width, int height) {
         this.window = window;
-        this.y = y;
-        this.x = x;
         this.width = width;
         this.height = height;
     }
@@ -37,6 +41,7 @@ public class Player {
         } else if (!falling && velY > 0) {
             velY = 0;
         }
+
 
         collisions();
 
@@ -77,25 +82,43 @@ public class Player {
                         }
                     }
                 }
-            } /*else if (i.id == IDS.door ) {
+            } else if (i.id == IDS.door) {
                 Door d = (Door) i;
                 Rectangle playerRect = new Rectangle((int) x, (int) y, width, height);
                 Rectangle door = new Rectangle(d.x, d.y, d.width, d.height);
-                if(playerRect.intersects(door)){
+                if (playerRect.intersects(door)) {
+                    this.x = 350;
+                    this.y = 0;
                     touchDoor = true;
-                }*/
+                    levelNum++;
+                }
+            } else if (i.id == IDS.key) {
+                Key k = (Key) i;
+                Rectangle playerRect = new Rectangle((int) x, (int) y, width, height);
+                Rectangle keyRect = new Rectangle(k.x, k.y, 30, 30);
+                if (playerRect.intersects(keyRect)) {
+                    touchKey = true;
+                    keysNum++;
+                    k.x = 900;
+                    k.y = 0;
+                }
+            }
         }
-
-
-
     }
 
 
     public void render(Graphics g){
+
         g.setColor(Color.RED);
         g.fillRect((int)x,(int)y,width,height);
+        g.setColor(Color.white);
+        g.fillOval((int)x+3, (int)y+3, width-7,height-7 );
+        g.setColor(Color.black);
+        g.fillOval((int)x+5, (int)y+5, width-10,height-10 );
+
 
     }
 
 
-}
+
+    }

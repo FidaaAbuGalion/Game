@@ -1,16 +1,10 @@
 package objects;
 
-import level.Level;
 
 import java.awt.*;
 
 public class Platforms extends Items {
 
-    /*int x, y, width, height;
-    public Color color;
-    public Platforms(byte id, int x, int y, int width, int height) {
-        super(id);
-    }*/
     int x, y, width, height;
     public Color color;
     public Platforms(byte id, int x, int y, int width, int height, Color color) {
@@ -20,6 +14,14 @@ public class Platforms extends Items {
         this.width = width;
         this.height = height;
         this.color = color;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     @Override
