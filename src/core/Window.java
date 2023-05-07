@@ -97,7 +97,6 @@ public class Window extends Canvas implements Runnable{
         if (gs == GameState.Game) {
             if (player.levelNum < 6) {
                 if (player.levelNum == 1) {
-
                     if (player.touchKey) {
                         LevelHandler.impediment1.setY(450);
                     }
@@ -123,7 +122,7 @@ public class Window extends Canvas implements Runnable{
                     g.drawImage(icon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
 
                 } else if (player.levelNum == 4) {
-                    LevelHandler.impediment2.setY(480);
+                    LevelHandler.impediment3.setY(480);
                     if (player.touchKey) {
                         LevelHandler.impediment4.setX(545);
                     }
