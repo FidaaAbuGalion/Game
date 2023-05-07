@@ -7,8 +7,8 @@ import java.net.URL;
 
 public class AudioHandler {
 
-    public static boolean off = false;
-    public  static Clip clip = null;
+    public static boolean off ;
+    public static Clip clip ;
 
     public static void RunMusic(String path){
 

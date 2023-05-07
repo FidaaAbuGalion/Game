@@ -5,15 +5,14 @@ import objects.*;
 
 import java.awt.*;
 import java.util.LinkedList;
-import java.util.Random;
+
 
 public class LevelHandler {
 
-    public double Gravity = 4;
+    public static final double GRAVITY = 4;
 
 
     public static LinkedList<Items> items = new LinkedList<Items>();
-    private static final Color purple = Color.getHSBColor(0.66f, 0.6f, 1f);
     private static final Color brown = Color.getHSBColor(20f/360, 0.7f, 0.4f);
 
     public static Platforms impediment1 = new Platforms(IDS.platForm,340,480,10,50, Color.orange);
@@ -22,7 +21,6 @@ public class LevelHandler {
     public static Platforms impediment4 = new Platforms(IDS.platForm , 600 , 500 , 70 , 10 , Color.orange);
     public static Platforms impediment5 = new Platforms(IDS.platForm , 500 , 510 , 60 , 10 , Color.orange);
 
-    public LevelHandler(){}
 
     public LevelHandler(int levelNum){
 

@@ -12,8 +12,8 @@ public class OptionsHandler {
 
     private Window w;
     private byte selector = 0;
-    private int selectorWidth =16;
-    private int selectorLeft = 16;
+    private static final int SELECTOR_WIDTH =16;
+    private static final int SELECTOR_LEFT = 16;
 
     public OptionsHandler(Window w) {
         this.w = w;
@@ -42,9 +42,9 @@ public class OptionsHandler {
 
 
         g.setColor(Color.RED.darker());
-        int selectorX = w.WIDTH/2 - (fontMetrics.stringWidth(sound)/2) - selectorWidth - selectorLeft;
-        int selectorY = 255 - selectorWidth/2 + selector * 100;
-        g.fillRect(selectorX, selectorY, selectorWidth, selectorWidth);
+        int selectorX = w.WIDTH/2 - (fontMetrics.stringWidth(sound)/2) - SELECTOR_WIDTH - SELECTOR_LEFT;
+        int selectorY = 255 - SELECTOR_WIDTH/2 + selector * 100;
+        g.fillRect(selectorX, selectorY, SELECTOR_WIDTH, SELECTOR_WIDTH);
     }
 
     public void tick(){

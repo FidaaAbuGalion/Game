@@ -18,9 +18,10 @@ public class Player {
     public double velX, velY;
     public double speed = 0.2;
     public double jumpVelocity = 0.45;
-    public boolean falling = false;
-    public boolean touchDoor = false;
-    public static boolean touchKey = false;
+    public boolean falling ;
+    public boolean touchDoor ;
+    public static boolean touchKey;
+    //
     public int levelNum  = 1;
     public static int keysNum = 0;
 
@@ -36,7 +37,7 @@ public class Player {
     public void tick() {
         x += velX;
         y += velY;
-        if (velY < window.level.Gravity && falling) {
+        if (velY < window.level.GRAVITY && falling) {
             velY += 0.001;
         } else if (!falling && velY > 0) {
             velY = 0;

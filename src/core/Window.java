@@ -67,10 +67,6 @@ public class Window extends Canvas implements Runnable{
         if (gs == GameState.Game){
         level.tick();
         player.tick();
-        } else if (gs == GameState.Menu){
-            menu.tick();
-        }else if (gs == GameState.Options){
-            options.tick();
         }
     }
 
@@ -97,6 +93,12 @@ public class Window extends Canvas implements Runnable{
         if (gs == GameState.Game) {
             if (player.levelNum < 6) {
                 if (player.levelNum == 1) {
+                    //
+                    LevelHandler.impediment2.setY(480);
+                    LevelHandler.impediment3.setY(480);
+                    LevelHandler.impediment4.setX(600);
+                    LevelHandler.impediment5.setX(500);
+                    //
                     if (player.touchKey) {
                         LevelHandler.impediment1.setY(450);
                     }
@@ -105,16 +107,12 @@ public class Window extends Canvas implements Runnable{
 
 
                 } else if (player.levelNum == 2) {
-                    LevelHandler.impediment1.setY(480);
                     if (player.touchKey) {
                         LevelHandler.impediment2.setY(460);
                     }
                     ImageIcon icon = new ImageIcon("src/Files/backGroundLevel2.png");
                     g.drawImage(icon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
-                    //g.setColor(Color.darkGray);
                 } else if (player.levelNum == 3) {
-                    LevelHandler.impediment2.setY(480);
-
                     if (player.touchKey) {
                         LevelHandler.impediment3.setY(460);
                     }
@@ -122,14 +120,14 @@ public class Window extends Canvas implements Runnable{
                     g.drawImage(icon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
 
                 } else if (player.levelNum == 4) {
-                    LevelHandler.impediment3.setY(480);
+
                     if (player.touchKey) {
                         LevelHandler.impediment4.setX(545);
                     }
                     ImageIcon icon = new ImageIcon("src/Files/backGroundLevel4.png");
                     g.drawImage(icon.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
                 } else if (player.levelNum == 5) {
-                    LevelHandler.impediment4.setX(600);
+
                     if (player.touchKey) {
                         LevelHandler.impediment5.setX(450);
                     }
@@ -141,7 +139,7 @@ public class Window extends Canvas implements Runnable{
                 g.setColor(Color.BLACK);
                 g.drawString("Keys: " + player.keysNum, 30, 60);
             }else if (player.levelNum > 5) {
-                LevelHandler.impediment5.setX(500);
+
                 endTheGame(g);
                 player.x = 900;
             }
@@ -165,7 +163,7 @@ public class Window extends Canvas implements Runnable{
     }
 
     public void startTheGame() {
-        LevelHandler.impediment1.setY(480);
+        player.touchKey = false;
         player.x = 600;
         player.y = 0;
         player.levelNum =1;

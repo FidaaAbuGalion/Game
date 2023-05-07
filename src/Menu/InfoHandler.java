@@ -9,9 +9,9 @@ import java.awt.event.KeyEvent;
 
 public class InfoHandler {
     private Window w;
-    private byte selector = 0;
-    private int selectorWidth =16;
-    private int selectorLeft = 16;
+    private static final byte SELECTOR = 0;
+    private int SELECTOR_WIDTH = 16;
+    private int SELECTOR_LEFT = 16;
 
     public InfoHandler(Window w) {
         this.w = w;
@@ -54,14 +54,12 @@ public class InfoHandler {
 
 
         g.setColor(Color.RED.darker());
-        int selectorX = w.WIDTH/2 - (fontMetrics.stringWidth(back)/2) - selectorWidth - selectorLeft;
-        int selectorY = 455 - selectorWidth/2 + selector * 100;
-        g.fillRect(selectorX, selectorY, selectorWidth, selectorWidth);
+        int selectorX = w.WIDTH/2 - (fontMetrics.stringWidth(back)/2) - SELECTOR_WIDTH - SELECTOR_LEFT;
+        int selectorY = 455 - SELECTOR_WIDTH/2 + SELECTOR * 100;
+        g.fillRect(selectorX, selectorY, SELECTOR_WIDTH, SELECTOR_WIDTH);
     }
 
-    public void tick(){
 
-    }
 
 
     public void KeyPress(int key) {

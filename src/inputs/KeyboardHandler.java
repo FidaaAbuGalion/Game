@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
 public class KeyboardHandler implements KeyListener {
 
     private Window window;
-    private boolean movingLeft = false;
+    private boolean movingLeft ;
 
 
     public KeyboardHandler(Window window) {
